@@ -20,8 +20,6 @@ def index():
     if form.validate_on_submit():
         file_binary = form.file.data
         file_binary.save('static/temp.jpg')
-        print('Here!!!')
-        res = 'text some'
         res = translate(model_img, model_trans, 'static/temp.jpg')
         return render_template('index.html', form=form, image=True, result=res)
     return render_template('index.html', form=form, image=False)
